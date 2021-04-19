@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol PrefectureDelegate: AnyObject {
-    func didTapCell(name: String)
+protocol SecondViewControllerDelegate: AnyObject {
+    func didSelectPrefecture(name: String)
 }
 
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private let prefectures = Prefecture.Prefectures
-    weak var delegate: PrefectureDelegate!
+    weak var delegate: SecondViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ extension SecondViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedName = prefectures[indexPath.row].name
-        delegate.didTapCell(name: selectedName)
+        delegate?.didSelectPrefecture(name: selectedName)
         performSegue(withIdentifier: "back", sender: nil)
     }
 }

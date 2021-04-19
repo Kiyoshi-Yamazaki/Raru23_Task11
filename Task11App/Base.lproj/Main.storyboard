@@ -35,7 +35,7 @@
                                         <rect key="frame" x="276" y="0.0" width="118" height="30"/>
                                         <state key="normal" title="変更"/>
                                         <connections>
-                                            <segue destination="GDn-b9-UfD" kind="presentation" identifier="Next" id="ofl-4Q-1Bi"/>
+                                            <action selector="didTapChangeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eoh-oW-mD6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -52,6 +52,7 @@
                     </view>
                     <connections>
                         <outlet property="prefectureLabel" destination="5V1-l8-Rtz" id="jhK-YH-dTg"/>
+                        <segue destination="GDn-b9-UfD" kind="presentation" identifier="Next" id="a41-i2-jPQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -77,9 +78,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="ef0-c2-h0s" kind="unwind" identifier="back" unwindAction="touchCellWithSegue:" id="Amd-fJ-F2h"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -96,12 +94,13 @@
                     <navigationItem key="navigationItem" title="都道府県" id="tF3-fC-YBM">
                         <barButtonItem key="rightBarButtonItem" title="キャンセル" id="JOX-yX-g5M">
                             <connections>
-                                <segue destination="ef0-c2-h0s" kind="unwind" unwindAction="exitWithSegue:" id="JFz-tg-JT7"/>
+                                <segue destination="ef0-c2-h0s" kind="unwind" unwindAction="exitWithSegue:" id="Alv-oU-nWv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mW0-7c-3Z3" id="vU3-i3-oTH"/>
+                        <segue destination="ef0-c2-h0s" kind="unwind" identifier="back" unwindAction="exitWithSegue:" id="EZk-vr-JKq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hyp-1Z-U21" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -114,6 +113,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GDn-b9-UfD" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BEU-R4-ePQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wCS-sy-eSi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>

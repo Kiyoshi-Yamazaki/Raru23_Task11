@@ -20,17 +20,31 @@ class ViewController: UIViewController {
 
     }
 
-    @IBAction func touchCell(segue: UIStoryboardSegue) {
-        if let secondVC = segue.source as? SecondViewController {
+    @IBAction func didTapChangeButton(_ sender: Any) {
+        performSegue(withIdentifier: "Next", sender: sender)
+    }
 
-            secondVC.delegate = self
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else { return }
+
+        switch identifier {
+        case "Next":
+            guard let navigationController = segue.destination as? UINavigationController,
+                  let secondViewController = navigationController.topViewController as? SecondViewController else {
+
+                return
+            }
+
+            secondViewController.delegate = self
+        default:
+            break
         }
     }
 }
 
-extension ViewController: PrefectureDelegate {
+extension ViewController: SecondViewControllerDelegate {
 
-    func didTapCell(name: String) {
+    func didSelectPrefecture(name: String) {
         prefectureLabel.text = name
     }
 }
